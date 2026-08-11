@@ -54,7 +54,7 @@ const FileUpload = () => {
       return;
     }
 
-    axios.post("/files", formData)
+    axios.post("/api/files", formData)
       .then(response => {
         console.log(response.data.message);
         alert(response.data.message);

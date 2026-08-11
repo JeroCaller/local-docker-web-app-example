@@ -8,7 +8,7 @@ const Main = () => {
 	const navigator = useNavigate();
 
 	const goToPage = () => {
-		axios.get("/members")
+		axios.get("/api/members")
 			.then(response => {
 				if (isSuccessHttpStatusCode(response.status)) {
 					navigator("/mypage");

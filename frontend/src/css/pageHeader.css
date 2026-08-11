@@ -1,0 +1,12 @@
+.user-display {
+    text-align: right;
+}
+
+.info-line {
+    display: flex;
+    justify-content: space-between;
+}
+
+.info-line > ul {
+    display: flex;
+}

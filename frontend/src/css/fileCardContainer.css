@@ -1,0 +1,13 @@
+.file-card {
+    border: 1px solid black;
+    width: 25em;
+    height: 100%;
+    padding: 1em;
+    margin: 1em;
+    overflow: auto;
+}
+
+.file-container {
+    display: flex;
+    flex-wrap: wrap;
+}

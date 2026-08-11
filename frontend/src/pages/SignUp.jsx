@@ -47,7 +47,7 @@ const SignUp = () => {
       return;
     }
 
-    axios.get(`http://localhost:8080/members/check?nickname=${nickname}`)
+    axios.get(`/members/check?nickname=${nickname}`)
       .then(response => {
         if (utils.isSuccessHttpStatusCode(response.status)) {
           const isAllowed = !response.data.data;
@@ -114,7 +114,7 @@ const SignUp = () => {
     // 테스트용
     //setMessage("테스트 - 회원가입 가능한 회원 정보입니다.");
 
-    axios.post("http://localhost:8080/members", requestData)
+    axios.post("/members", requestData)
       .then(response => {
         if (utils.isSuccessHttpStatusCode(response.status)) {
           alert(`회원 가입 성공! 로그인 화면에서 로그인해주세요. 

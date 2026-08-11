@@ -25,7 +25,7 @@ const Login = () => {
     const requestData = utils.extractJsonFromFormData(formData);
     //console.log(requestData);
 
-    axios.post("http://localhost:8080/auth/login", requestData)
+    axios.post("/auth/login", requestData)
       .then(response => {
         // 기존에 로그인 실패하다가 이후 성공한 경우 에러 메시지 초기화.
         setErrorMsg("");

@@ -8,7 +8,7 @@ const Main = () => {
 	const navigator = useNavigate();
 
 	const goToPage = () => {
-		axios.get("http://localhost:8080/members")
+		axios.get("/members")
 			.then(response => {
 				if (isSuccessHttpStatusCode(response.status)) {
 					navigator("/mypage");

@@ -23,7 +23,7 @@ const FileList = ({ userInfo }) => {
 	const fileDispath = useDispatch();
 
 	const readFileFromServer = () => {
-		axios.get("/files")
+		axios.get("/api/files")
 			.then(response => {
 				if (utils.isSuccessHttpStatusCode(response.status)) {
 					const responseData = response.data.data;

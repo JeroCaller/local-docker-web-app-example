@@ -52,7 +52,7 @@ const ChangeProfile = ({ userInfo }) => {
       return;
     }
 
-    axios.put("/members", requestData)
+    axios.put("/api/members", requestData)
       .then(response => {
         if (utils.isSuccessHttpStatusCode(response.status)) {
           const responseData = response.data.data;

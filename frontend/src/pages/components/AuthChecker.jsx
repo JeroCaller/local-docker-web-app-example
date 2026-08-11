@@ -28,7 +28,7 @@ const AuthChecker = ({ pageComponent, pathIfNotAuth = "/login" }) => {
     //console.log(authInfo);
     if (authInfo && authInfo.loggedIn) return;
     //console.log("useEffect 내부 진입");
-    axios.get("http://localhost:8080/members")
+    axios.get("/members")
     .then(response => {
       if (utils.isSuccessHttpStatusCode(response.status)) {
         const responseData = response.data.data;

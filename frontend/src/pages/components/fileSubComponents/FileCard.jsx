@@ -10,7 +10,7 @@ const FileCard = ({ fileInfo }) => {
 
   const deleteFile = () => {
     if (window.confirm("정말 해당 파일을 삭제하시겠습니까?")) {
-      axios.delete(`http://localhost:8080/files/${fileInfo.id}`)
+      axios.delete(`/files/${fileInfo.id}`)
        .then(response => {
         if (utils.isSuccessHttpStatusCode(response.status)) {
           alert("파일 삭제 성공.");
@@ -43,7 +43,7 @@ const FileCard = ({ fileInfo }) => {
       <p>path: {fileInfo.filePath}</p>
       {/*<button onClick={handleDownload}>다운로드</button> */}
       <p>
-        <a href={`http://localhost:8080/files/download/${fileInfo.id}`}>다운로드</a>
+        <a href={`/files/download/${fileInfo.id}`}>다운로드</a>
       </p>
       <button type="button" onClick={deleteFile}>삭제하기</button>
     </li>

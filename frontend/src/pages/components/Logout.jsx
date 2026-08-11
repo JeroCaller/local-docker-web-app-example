@@ -20,7 +20,7 @@ const Logout = () => {
 			navigator("/");  // 메인 페이지로 이동.
 		};
 
-		axios.post("http://localhost:8080/auth/logout")
+		axios.post("/auth/logout")
 			.then(response => {
 				console.log("then called");
 				if (utils.isSuccessHttpStatusCode(response.status)) {

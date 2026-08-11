@@ -23,7 +23,7 @@ const DangerZone = () => {
   const handleUnregister = (event) => {
     if(!window.confirm("정말로 탈퇴하시겠습니까?")) return;
 
-    axios.delete("http://localhost:8080/members")
+    axios.delete("/members")
     .then(response => {
       if (utils.isSuccessHttpStatusCode(response.status)) {
         alert("회원 탈퇴하였습니다. 그동안 감사했습니다.");

@@ -8,7 +8,6 @@ WORKDIR /app
 COPY . .
 
 # gradle을 이용하여 앱 빌드
-RUN chmod +x gradlew
 RUN ./gradlew clean build -x test
 
 # === Runtime stage ===

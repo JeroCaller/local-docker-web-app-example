@@ -68,7 +68,7 @@ tokens.*
 **/.gradle/
 **/.m2/
 **/.mvn/
-**/gradle/
+# **/gradle/
 **/m2/
 **/maven/
 **/mvn/
@@ -79,7 +79,7 @@ tokens.*
 .mvn/timing.properties
 .mvn/wrapper/maven-wrapper.jar
 
-gradle-wrapper.jar
+# gradle-wrapper.jar
 mvnw
 mvnw.cmd
 pom.xml.releaseBackup
@@ -195,8 +195,14 @@ config/application-*.yml
 gradle-app.setting
 hs_err_pid*
 
-# Custom
+# === Custom ===
 files/
 README.md
 HELP.md
 build/
+.git
+.gitignore
+.gitattributes
+.idea/
+Dockerfile*
+.dockerignore

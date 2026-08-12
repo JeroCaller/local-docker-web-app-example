@@ -68,7 +68,7 @@ tokens.*
 **/.gradle/
 **/.m2/
 **/.mvn/
-**/gradle/
+# **/gradle/
 **/m2/
 **/maven/
 **/mvn/
@@ -79,7 +79,7 @@ tokens.*
 .mvn/timing.properties
 .mvn/wrapper/maven-wrapper.jar
 
-gradle-wrapper.jar
+# gradle-wrapper.jar
 mvnw
 mvnw.cmd
 pom.xml.releaseBackup

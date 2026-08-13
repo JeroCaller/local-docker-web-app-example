@@ -10,7 +10,7 @@ username-password 기반 로그인 기능과 이미지 파일 업로드 및 다�
 </div>
 
 <div align="center">
-  <img src="/readme-resources/image-album-upload-and-download-image" alt="image">
+  <img src="/readme-resources/image-album-upload-and-download-image.gif" alt="image">
 </div>
 
 # Skills

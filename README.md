@@ -5,20 +5,12 @@
 # Overview of Web app
 username-password 기반 로그인 기능과 이미지 파일 업로드 및 다운로드 기능을 학습하기 위해 구현한 간단한 이미지 앨범 웹앱입니다. 로그인한 사용자는 자신의 이미지만 볼 수 있으며, 비로그인한 사용자는 어떤 이미지도 볼 수 없습니다. 
 
-<div style="text-align:center; margin:1em;">
-  <video src="https://jerocaller.github.io/resources/2025-01-28/Spring-Boot-%ED%8C%8C%EC%9D%BC%20%EC%97%85%EB%A1%9C%EB%93%9C%20%EB%B0%8F%20%EB%8B%A4%EC%9A%B4%EB%A1%9C%EB%93%9C%20%EA%B8%B0%EB%8A%A5%20%EA%B5%AC%ED%98%84/1.mp4"
-    controls="controles"
-    muted="muted"
-    width="100%"
-></video>
+<div align="center">
+  <img src="/readme-resources/image-album-signin.gif" alt="image">
 </div>
 
-<div style="text-align:center; margin:1em;">
-  <video src="https://jerocaller.github.io/resources/2025-01-28/Spring-Boot-%ED%8C%8C%EC%9D%BC%20%EC%97%85%EB%A1%9C%EB%93%9C%20%EB%B0%8F%20%EB%8B%A4%EC%9A%B4%EB%A1%9C%EB%93%9C%20%EA%B8%B0%EB%8A%A5%20%EA%B5%AC%ED%98%84/2.mp4"
-    controls="controles"
-    muted="muted"
-    width="100%"
-></video>
+<div align="center">
+  <img src="/readme-resources/image-album-upload-and-download-image" alt="image">
 </div>
 
 # Skills
@@ -43,8 +35,8 @@ username-password 기반 로그인 기능과 이미지 파일 업로드 및 다�
 
 - 3 tier architecture 구조를 따라 웹 서버, WAS(웹앱), DB 프로그램들을 각각 컨테이너로 격리한 후, 동일한 호스트 위에서 컨테이너들을 실행하는 방식으로 로컬에 배포 연습을 진행하였습니다. 
 
-<div style="text-align:center; margin:1em;">
-  <img src="/readme-resources/local-web-app-docker.drawio.png" alt="image" width="80%">
+<div align="center">
+  <img src="/readme-resources/local-web-app-docker.drawio.png" alt="image">
 </div>
 
 # Details

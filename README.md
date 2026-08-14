@@ -115,7 +115,7 @@ server {
 FROM eclipse-temurin:21-jdk as builder
 WORKDIR /app
 COPY . .
-RUN ./gradlew clean build -x test
+RUN chmod +x ./gradlew && ./gradlew clean build -x test
 
 # === Runtime stage ===
 FROM eclipse-temurin:21-jre
@@ -135,6 +135,7 @@ services:
       - ${FRONTEND_PORT}:80
     networks:
       - frontend-net
+    restart: unless-stopped
     volumes:
       # ro: read-only
       - ./frontend/nginx.conf:/etc/nginx/conf.d/default.conf:ro
@@ -152,6 +153,7 @@ services:
     volumes:
       # Dockerfile에서의 디렉터리 구조를 참고. 
       - image-vol:/app/files
+    restart: unless-stopped
     depends_on:
       db-server:
         condition: service_healthy

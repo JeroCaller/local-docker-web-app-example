@@ -8,7 +8,7 @@ WORKDIR /app
 COPY . .
 
 # gradle을 이용하여 앱 빌드
-RUN ./gradlew clean build -x test
+RUN chmod +x ./gradlew && ./gradlew clean build -x test
 
 # === Runtime stage ===
 # 런타임 환경에서는 빌드가 필요없기에 런타임 환경인 jre만 사용.

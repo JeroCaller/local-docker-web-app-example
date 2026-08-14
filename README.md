@@ -1,8 +1,8 @@
-리눅스 환경에서 3 tier architecture를 가지는 웹 앱을 동일한 호스트 내에서 Docker compose로 띄워보는 예시 프로젝트.  
+리눅스 환경에서 3 tier architecture로 구성된 웹 앱을 동일한 호스트 내에서 Docker Compose로 띄워보는 예시 프로젝트.  
 
-예전에 파일 업로드 및 다운로드, 이미지 파일 화면 출력 실습을 위해 만들어뒀던 프론트엔드, 백엔드 프로젝트들을 하나로 합쳐 Docker compose 실습으로 활용하였습니다. 
+파일 업로드 및 다운로드, 이미지 파일 화면 출력 실습을 위해 만들어뒀던 프론트엔드, 백엔드 프로젝트들을 하나로 합쳐 Docker Compose 실습으로 활용하였습니다. 
 
-# Overview of Web app
+# Overview of web app
 username-password 기반 로그인 기능과 이미지 파일 업로드 및 다운로드 기능을 학습하기 위해 구현한 간단한 이미지 앨범 웹앱입니다. 로그인한 사용자는 자신의 이미지만 볼 수 있으며, 비로그인한 사용자는 어떤 이미지도 볼 수 없습니다. 
 
 <div align="center">
@@ -16,8 +16,7 @@ username-password 기반 로그인 기능과 이미지 파일 업로드 및 다�
 # Skills
 
 - Frontend
-  - React
-  - CRA
+  - React (CRA)
   - Nginx (web server)
 - Backend
   - Spring Boot 3.4.1
@@ -29,11 +28,11 @@ username-password 기반 로그인 기능과 이미지 파일 업로드 및 다�
   - WSL 2
   - Ubuntu 26.04 LTS
   - Docker Desktop 4.81.0
-  - Docker compose v5.2.0
+  - Docker Compose v5.2.0
 
 # Deployment
 
-- 3 tier architecture 구조를 따라 웹 서버, WAS(웹앱), DB 프로그램들을 각각 컨테이너로 격리한 후, 동일한 호스트 위에서 컨테이너들을 실행하는 방식으로 로컬에 배포 연습을 진행하였습니다. 
+- 3 tier architecture 구조를 따라 웹 서버, 애플리케이션 서버, DBMS 프로그램들을 각각 컨테이너로 격리한 후, 동일한 호스트 위에서 컨테이너들을 실행하는 방식으로 로컬에 배포 연습을 진행하였습니다. 
 
 <div align="center">
   <img src="/readme-resources/local-web-app-docker.drawio.png" alt="image">
@@ -53,7 +52,7 @@ username-password 기반 로그인 기능과 이미지 파일 업로드 및 다�
     ...
   /backend
     /src
-    bulid.gradle
+    build.gradle
     Dockerfile
     ...
   /secrets  # docker secrets
@@ -211,7 +210,7 @@ networks:
 git clone https://github.com/JeroCaller/local-docker-web-app-example.git
 ```
 
-Docker compose 실행을 위해 필요한 파일들을 설정합니다. 먼저 프로젝트 폴더 루트에 `.env` 파일을 만들고 다음과 같은 형식으로 각 설정값들을 자유롭게 지정합니다.
+Docker Compose 실행을 위해 필요한 파일들을 설정합니다. 먼저 프로젝트 폴더 루트에 `.env` 파일을 만들고 다음과 같은 형식으로 각 설정값들을 자유롭게 지정합니다.
 
 ```.env
 # .env example
@@ -224,7 +223,7 @@ FRONTEND_PORT=80
 
 ```txt
 db-root-password.txt
-db-name.txt  # db database name
+db-name.txt  # database name
 
 # application.properties의 
 # - spring.datasource.password
@@ -240,16 +239,17 @@ spring-datasource-user.txt
 # 예) db-name.txt 파일 내부. 사용할 데이터베이스 이름을 정한다.
 image-album-db
 ```
+
 보안을 위해 `/secrets` 폴더 및 `.env` 파일이 git에 업로드되지 않도록 `.gitignore`에 추가되어 있는지 다시 한 번 확인합니다.
 
 실행을 위해 Docker에서 다음과 같은 명령어를 사용합니다.
 ```shell
-Docker compose up -d
+docker compose up -d
 
 # 소스 코드 변경으로 인해 이미지 재빌드해야하는 경우 다음의 명령어를 사용
-# Docker compose up -d --build
+# docker compose up -d --build
 ```
 
-모든 컨테이너들이 실행 중이라면 웹 브라우저에서 `http://localhost:80`으로 방문하면 됩니다. 
+모든 컨테이너들이 실행 중이라면 웹 브라우저에서 `http://localhost:<FRONTEND_PORT>`으로 방문하면 됩니다. 
 
 실행 중인 Docker compose를 종료하려면 `docker compose down`을, 볼륨까지 삭제하려면 `docker compose down -v`를 입력합니다. 

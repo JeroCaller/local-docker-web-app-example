@@ -41,7 +41,7 @@ username-password 기반 로그인 기능과 이미지 파일 업로드 및 다�
 
 # Details
 
-## 프로젝트 폴더 구조
+## Project directory structure
 
 ```
 /project

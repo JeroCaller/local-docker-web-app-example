@@ -8,7 +8,7 @@ const AuthTest = () => {
 	const [authState, setAuthState] = useState(null);
 
 	useEffect(() => {
-		axios.get("http://localhost:8080/members", {withCredentials: true})
+		axios.get("/api/members", {withCredentials: true})
 			.then(response => {
 				console.log(response);
 				if (utils.isSuccessHttpStatusCode(response.status)) {

@@ -1,7 +1,13 @@
 package com.jerocaller.config;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Stream;
 
+import jakarta.annotation.PostConstruct;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -24,6 +30,35 @@ import com.jerocaller.util.PermitAllRequestUriUtils;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
+
+	/**
+	 * <p>CORS 허용 origin들을 설정.</p>
+	 * <p>
+	 *     <code>application-secrets.properties</code> 파일 생성 후,
+	 *     <code>cors.allowedorigins</code> 속성값에 추가하고자 하는 origin들을 쉼표(,)를
+	 *     구분자로 하여 추가한다.
+	 * </p>
+	 * <p>
+	 *     예)
+	 *     <code>
+	 *         cors.allowedorigins=http://localhost:3000,http://aaa-bbb:5000
+	 *     </code>
+	 * </p>
+	 * <p>
+	 *     해당 파일 및 속성값 존재 여부와 상관없이 <code>http://localhost</code>은 기본으로 추가된다.
+	 * </p>
+	 */
+	@Value("${cors.allowedorigins:http://localhost}")
+	private List<String> corsAllowedOrigins;
+
+	private final String DEFAULT_ORIGIN = "http://localhost";
+
+	@PostConstruct
+	public void init() {
+		if (!corsAllowedOrigins.contains(DEFAULT_ORIGIN)) {
+			corsAllowedOrigins.add(DEFAULT_ORIGIN);
+		}
+	}
 	
 	/**
 	 * AuthenticationManager는 인증 로직의 중심 역할을 하며, 요청을 처리한다.
@@ -75,7 +110,7 @@ public class SecurityConfig {
 	
 	public CorsConfigurationSource corsConfigurationSource() {
 		CorsConfiguration configuration = new CorsConfiguration();
-		configuration.setAllowedOrigins(Arrays.asList("http://localhost", "http://localhost:3000"));
+		configuration.setAllowedOrigins(corsAllowedOrigins);
 		configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "PATCH", "DELETE"));
 		configuration.setAllowedHeaders(Arrays.asList("*"));
 		
